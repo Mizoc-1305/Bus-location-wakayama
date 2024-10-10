@@ -11,3 +11,9 @@ It is operated unofficially and the developer has no affiliation with Wakayama B
   
 Open Data Public Page: https://loc.bus-vision.jp/wakayama/view/opendataWaka.html  
 Wakayama Bus: https://www.wakayamabus.co.jp/  
+  
+  
+## localとwebについて  
+localフォルダにはローカルPCで動作するプログラムが入っています。  
+仕様にはFlaskのインストールが必要です。  
+webフォルダにはwebサーバ上で動作させるためのプログラムが入ります。  
