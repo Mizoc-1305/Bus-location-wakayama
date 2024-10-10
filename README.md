@@ -15,5 +15,5 @@ Wakayama Bus: https://www.wakayamabus.co.jp/
   
 ## localとwebについて  
 localフォルダにはローカルPCで動作するプログラムが入っています。  
-仕様にはFlaskのインストールが必要です。  
+プログラムの実行にはFlaskのインストールが必要です。  
 webフォルダにはwebサーバ上で動作させるためのプログラムが入ります。  
