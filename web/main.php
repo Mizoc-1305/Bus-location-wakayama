@@ -26,5 +26,5 @@ if ($data === false) {
 }
 
 // データをそのまま返す
-echo $data;
+echo json_encode($data);
 ?>
