@@ -8,7 +8,7 @@ let markers = {}; // マーカーを管理するオブジェクト
 let tracks = {}; // 軌跡を管理するオブジェクト
 
 // Protocol Buffersをロード
-protobuf.load("path/to/gtfs-realtime.proto", function(err, root) { // 修正: gtfs-realtime.proto のパスが正しいことを確認
+protobuf.load("../proto/gtfs-realtime.proto", function(err, root) { // 修正: gtfs-realtime.proto のパスが正しいことを確認
     if (err) {
         console.error("Error loading .proto file:", err);
         return;
