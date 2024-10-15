@@ -8,9 +8,9 @@ let markers = {}; // マーカーを管理するオブジェクト
 let tracks = {}; // 軌跡を管理するオブジェクト
 
 // Protocol Buffersをロード
-protobuf.load("../proto/gtfs-realtime.proto", function(err, root) { // 修正: gtfs-realtime.proto のパスが正しいことを確認
+protobuf.load("proto/gtfs-realtime.proto", function(err, root) { // 修正: gtfs-realtime.proto のパスが正しいことを確認
     if (err) {
-        console.error("Error loading .proto file:", err);
+        console.error(err);
         return;
     }
 
@@ -21,9 +21,23 @@ protobuf.load("../proto/gtfs-realtime.proto", function(err, root) { // 修正: g
         fetch('main.php')
             .then(response => response.arrayBuffer()) // バイナリデータとして取得
             .then(buffer => {
+                console.log("Received data:", buffer);
+                // データの形式をデバッグして確認
+                if (buffer.byteLength === 0) {
+                    throw new Error('Empty response');
+                }
+
                 // Protocol Buffersのデコード
-                let message = VehiclePosition.decode(new Uint8Array(buffer));
+                let message;
+                try {
+                    message = VehiclePosition.decode(new Uint8Array(buffer));
+                } catch (err) {
+                    console.error('Failed to decode:', err);
+                    throw err;
+                }
+
                 let data = message.entity;
+                console.log("Decoded data:", data);
 
                 data.forEach(entity => {
                     if (entity.vehicle && entity.vehicle.position) {
