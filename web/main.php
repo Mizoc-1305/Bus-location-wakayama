@@ -10,7 +10,7 @@ $vehicle_position_url = "https://loc.bus-vision.jp/realtime/wakayama_vpos_update
 function fetch_vehicle_positions($url) {
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
-    crul_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     $data = curl_exec($ch);
     curl_close($ch);
 
@@ -26,5 +26,5 @@ if ($data === false) {
 }
 
 // データをそのまま返す
-echo json_encode($data);
+echo $data;
 ?>
