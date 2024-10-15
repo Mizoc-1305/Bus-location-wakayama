@@ -1,5 +1,5 @@
 // 地図の初期化
-let map = L.map('map').setview([34.23237487,135.1910052], 12);
+let map = L.map('map').setView([34.23237487,135.1910052], 12);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19
 }).addTo(map);
